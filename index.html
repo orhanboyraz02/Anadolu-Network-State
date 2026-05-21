@@ -46,22 +46,22 @@
         .footer-link:hover { color: #D4AF37; }
         
         .package-card { background: linear-gradient(145deg, #0F1222 0%, #0B0E1A 100%); border: 1px solid #1E2340; border-radius: 20px; transition: all 0.3s ease; }
-        .package-card:hover { transform: translateY(-5px); border-color: #D4AF37; }
+        .package-card:hover { transform: translateY(-5px); border-color: #D4AF37; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .package-popular { border: 2px solid #D4AF37; position: relative; }
         .package-popular::before { content: "⭐ POPÜLER"; position: absolute; top: -12px; right: 20px; background: #D4AF37; color: black; font-size: 10px; font-weight: bold; padding: 2px 12px; border-radius: 20px; }
         
         .tab-btn.active { background: rgba(212, 175, 55, 0.2); color: #D4AF37; border-bottom: 2px solid #D4AF37; }
         
-        .product-item, .service-item, .admin-module-item { transition: all 0.2s; }
-        .product-item:hover, .service-item:hover, .admin-module-item:hover { background: rgba(212, 175, 55, 0.1); }
-        
         .whatsapp-btn { background: #25D366; transition: all 0.3s; }
         .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
+        
+        .product-item, .service-item, .admin-module-item { transition: all 0.2s; }
+        .product-item:hover, .service-item:hover, .admin-module-item:hover { background: rgba(212, 175, 55, 0.1); }
     </style>
 </head>
 <body>
 
-<!-- GİRİŞ EKRANI -->
+<!-- GİRİŞ / KAYIT EKRANI -->
 <div id="loginModal" class="modal">
     <div class="bg-[#0F1222] rounded-2xl p-8 w-[420px] border border-[#1E2340] gold-glow">
         <div class="flex gap-2 mb-6 border-b border-gray-800">
@@ -74,14 +74,14 @@
             <div><label class="text-gray-400 text-sm block mb-2">Şifre</label><input type="password" id="loginPassword" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white focus:border-[#D4AF37] outline-none" placeholder="••••••••"></div>
             <div class="flex items-center justify-between text-sm"><label class="flex items-center gap-2 text-gray-500"><input type="checkbox" id="rememberMe"> Beni hatırla</label><a href="#" class="gold-text" onclick="showForgotPassword(); return false;">Şifremi unuttum</a></div>
             <button onclick="login()" class="w-full gold-bg text-black font-semibold py-2 rounded-lg hover:opacity-90 transition">Giriş Yap</button>
-            <div class="text-center text-xs text-gray-600">Demo: orhan@anadolu.com / 123456</div>
+            <div class="text-center text-xs text-gray-600 mt-2">Demo: orhan@anadolu.com / 123456</div>
         </div>
         
         <div id="registerForm" style="display: none;" class="space-y-3">
-            <div><label class="text-gray-400 text-sm block mb-2">Ad Soyad</label><input type="text" id="regName" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white" placeholder="Adınız Soyadınız"></div>
-            <div><label class="text-gray-400 text-sm block mb-2">E-posta</label><input type="email" id="regEmail" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white" placeholder="ornek@email.com"></div>
-            <div><label class="text-gray-400 text-sm block mb-2">Şifre</label><input type="password" id="regPassword" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white" placeholder="••••••••"></div>
-            <div><label class="text-gray-400 text-sm block mb-2">Şifre Tekrar</label><input type="password" id="regPasswordConfirm" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white" placeholder="••••••••"></div>
+            <div><label class="text-gray-400 text-sm block mb-2">Ad Soyad</label><input type="text" id="regName" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white focus:border-[#D4AF37] outline-none" placeholder="Adınız Soyadınız"></div>
+            <div><label class="text-gray-400 text-sm block mb-2">E-posta</label><input type="email" id="regEmail" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white focus:border-[#D4AF37] outline-none" placeholder="ornek@email.com"></div>
+            <div><label class="text-gray-400 text-sm block mb-2">Şifre</label><input type="password" id="regPassword" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white focus:border-[#D4AF37] outline-none" placeholder="••••••••"></div>
+            <div><label class="text-gray-400 text-sm block mb-2">Şifre Tekrar</label><input type="password" id="regPasswordConfirm" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-4 py-2 text-white focus:border-[#D4AF37] outline-none" placeholder="••••••••"></div>
             <div class="flex items-center gap-2 text-sm text-gray-500"><input type="checkbox" id="acceptTerms"> <span>Kullanıcı sözleşmesini okudum ve kabul ediyorum</span></div>
             <button onclick="register()" class="w-full gold-bg text-black font-semibold py-2 rounded-lg hover:opacity-90 transition">Kayıt Ol</button>
         </div>
@@ -130,7 +130,6 @@
     <div class="bg-[#0F1222] rounded-2xl p-6 w-[700px] max-h-[85vh] overflow-y-auto border border-[#1E2340]">
         <div class="flex justify-between items-center mb-4"><h2 class="text-white text-xl font-bold"><i class="fas fa-user-cog gold-text mr-2"></i> Yönetim Paneli</h2><button onclick="closeAdminPanel()" class="text-gray-500 hover:text-white text-xl">&times;</button></div>
         
-        <!-- Sekmeler -->
         <div class="flex gap-2 border-b border-gray-800 mb-4">
             <button class="admin-tab-btn px-4 py-2 text-sm text-gray-400 transition" onclick="switchAdminTab('profile')">👤 Profil</button>
             <button class="admin-tab-btn px-4 py-2 text-sm text-gray-400 transition" onclick="switchAdminTab('modules')">📦 Modüller</button>
@@ -138,32 +137,31 @@
             <button class="admin-tab-btn px-4 py-2 text-sm text-gray-400 transition" onclick="switchAdminTab('services')">⚙️ Hizmetler</button>
         </div>
         
-        <!-- PROFİL SEKME -->
+        <!-- PROFİL -->
         <div id="adminProfileTab" class="space-y-4">
             <div class="border-b border-[#1E2340] pb-3"><h3 class="gold-text text-sm font-semibold mb-3">Profil Bilgileri</h3><div class="space-y-2"><div class="flex items-center gap-2"><i class="fas fa-user text-gray-500 w-6"></i><input type="text" id="adminName" class="bg-transparent text-gray-300 text-sm flex-1 border-b border-gray-700 focus:border-[#D4AF37] outline-none"></div><div class="flex items-center gap-2"><i class="fas fa-envelope text-gray-500 w-6"></i><input type="email" id="adminEmail" class="bg-transparent text-gray-300 text-sm flex-1 border-b border-gray-700 focus:border-[#D4AF37] outline-none"></div><div class="flex items-center gap-2"><i class="fas fa-tag text-gray-500 w-6"></i><span class="text-gray-300 text-sm" id="adminRole">Kullanıcı</span></div></div></div>
             <div class="border-b border-[#1E2340] pb-3"><h3 class="gold-text text-sm font-semibold mb-3">Şifre Değiştir</h3><input type="password" id="newPassword" placeholder="Yeni şifre" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm mb-2"><input type="password" id="confirmNewPassword" placeholder="Yeni şifre (tekrar)" class="w-full bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><button onclick="changeUserPassword()" class="mt-2 gold-bg text-black text-sm font-semibold px-4 py-1.5 rounded-lg">Şifreyi Güncelle</button></div>
             <div><button onclick="updateProfile()" class="w-full gold-bg text-black py-2 rounded-lg">Profili Güncelle</button></div>
+            <div><button onclick="logoutFromAdmin()" class="w-full bg-red-600/80 text-white py-2 rounded-lg hover:bg-red-600">Tüm Cihazlardan Çıkış Yap</button></div>
         </div>
         
-        <!-- MODÜL YÖNETİMİ SEKME -->
+        <!-- MODÜL YÖNETİMİ -->
         <div id="adminModulesTab" style="display: none;" class="space-y-4">
             <div><h3 class="gold-text text-sm font-semibold mb-3">Mevcut Modüller</h3><div id="modulesList" class="space-y-2 max-h-60 overflow-y-auto"></div></div>
-            <div class="border-t border-[#1E2340] pt-3"><h3 class="gold-text text-sm font-semibold mb-3">Yeni Modül Ekle</h3><div class="grid grid-cols-2 gap-2"><input type="text" id="newModuleName" placeholder="Modül Adı" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newModuleIcon" placeholder="Font Awesome icon (fa-tv)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newModuleGroup" placeholder="Grup (core/finance/people/assets/tech)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"><input type="text" id="newModuleDesc" placeholder="Açıklama" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"></div><button onclick="addModule()" class="mt-3 gold-bg text-black px-4 py-2 rounded-lg w-full">➕ Modül Ekle</button></div>
+            <div class="border-t border-[#1E2340] pt-3"><h3 class="gold-text text-sm font-semibold mb-3">Yeni Modül Ekle</h3><div class="grid grid-cols-2 gap-2"><input type="text" id="newModuleName" placeholder="Modül Adı" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newModuleIcon" placeholder="Icon (fa-tv)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newModuleGroup" placeholder="Grup (core/finance/people/assets/tech)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"><input type="text" id="newModuleDesc" placeholder="Açıklama" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"></div><button onclick="addModule()" class="mt-3 gold-bg text-black px-4 py-2 rounded-lg w-full">➕ Modül Ekle</button></div>
         </div>
         
-        <!-- ÜRÜN YÖNETİMİ SEKME -->
+        <!-- ÜRÜN YÖNETİMİ -->
         <div id="adminProductsTab" style="display: none;" class="space-y-4">
             <div><h3 class="gold-text text-sm font-semibold mb-3">Ürünler</h3><div id="productsList" class="space-y-2 max-h-60 overflow-y-auto"></div></div>
             <div class="border-t border-[#1E2340] pt-3"><h3 class="gold-text text-sm font-semibold mb-3">Yeni Ürün Ekle</h3><div class="grid grid-cols-2 gap-2"><input type="text" id="newProductName" placeholder="Ürün Adı" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newProductPrice" placeholder="Fiyat ($)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newProductDesc" placeholder="Açıklama" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"></div><button onclick="addProduct()" class="mt-3 gold-bg text-black px-4 py-2 rounded-lg w-full">🛒 Ürün Ekle</button></div>
         </div>
         
-        <!-- HİZMET YÖNETİMİ SEKME -->
+        <!-- HİZMET YÖNETİMİ -->
         <div id="adminServicesTab" style="display: none;" class="space-y-4">
             <div><h3 class="gold-text text-sm font-semibold mb-3">Hizmetler</h3><div id="servicesList" class="space-y-2 max-h-60 overflow-y-auto"></div></div>
             <div class="border-t border-[#1E2340] pt-3"><h3 class="gold-text text-sm font-semibold mb-3">Yeni Hizmet Ekle</h3><div class="grid grid-cols-2 gap-2"><input type="text" id="newServiceName" placeholder="Hizmet Adı" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newServicePrice" placeholder="Fiyat ($)" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm"><input type="text" id="newServiceDesc" placeholder="Açıklama" class="bg-[#1A1D2E] border border-[#2A2D3E] rounded-lg px-3 py-2 text-white text-sm col-span-2"></div><button onclick="addService()" class="mt-3 gold-bg text-black px-4 py-2 rounded-lg w-full">⚙️ Hizmet Ekle</button></div>
         </div>
-        
-        <div class="mt-4 pt-3 border-t border-[#1E2340] text-center"><button onclick="logoutFromAdmin()" class="bg-red-600/80 text-white px-6 py-2 rounded-lg hover:bg-red-600">Tüm Cihazlardan Çıkış Yap</button></div>
     </div>
 </div>
 
@@ -197,14 +195,14 @@
 
 <script>
 // ============================================
-// VERİTABANI (localStorage)
+// KULLANICI VERİTABANI (localStorage)
 // ============================================
-let users = JSON.parse(localStorage.getItem('ans_users') || '[{"name":"Orhan BOYRAZ","email":"orhan@anadolu.com","password":"123456","role":"Yönetici","initial":"O","package":"Kurucu"}]');
+let users = JSON.parse(localStorage.getItem('ans_users') || '[{"name":"Orhan BOYRAZ","email":"orhan@anadolu.com","password":"123456","role":"Yönetici","initial":"O"}]');
 let currentUser = null;
 
-// Varsayılan Modüller (24 adet)
+// Varsayılan Modüller
 let dynamicModules = JSON.parse(localStorage.getItem('ans_modules') || '[]');
-let defaultModules = [
+const defaultModules = [
     { id: "command", name: "Yönetici Komuta Merkezi", icon: "fa-tv", group: "core", desc: "Tüm KPI'ların özeti" },
     { id: "vision", name: "Vizyon & Misyon Paneli", icon: "fa-eye", group: "core", desc: "ANS vizyonu" },
     { id: "okr", name: "OKR Yönetim Sistemi", icon: "fa-bullseye", group: "core", desc: "Hedef takibi" },
@@ -230,17 +228,11 @@ let defaultModules = [
     { id: "civilization", name: "Medeniyet Etki Endeksi", icon: "fa-globe-asia", group: "core", desc: "Medeniyet ölçümü" },
     { id: "multigen", name: "Çok Nesil Servet", icon: "fa-tree", group: "finance", desc: "Nesil planlaması" }
 ];
+if(dynamicModules.length === 0) { dynamicModules = [...defaultModules]; localStorage.setItem('ans_modules', JSON.stringify(dynamicModules)); }
 
-if(dynamicModules.length === 0) {
-    dynamicModules = [...defaultModules];
-    localStorage.setItem('ans_modules', JSON.stringify(dynamicModules));
-}
-
-// Ürünler
-let products = JSON.parse(localStorage.getItem('ans_products') || '[{"name":"ANS Kurucu NFT","price":4999,"desc":"Özel kurucu sertifikası"},{"name":"Termal Kampüs Aboneliği","price":1999,"desc":"Yıllık termal erişim"},{"name":"Eğitim Seti","price":499,"desc":"Medeniyet eğitimleri"}]');
-
-// Hizmetler
-let services = JSON.parse(localStorage.getItem('ans_services') || '[{"name":"Strateji Danışmanlığı","price":5000,"desc":"Chancellor ile özel görüşme"},{"name":"Portföy Yönetimi","price":2500,"desc":"Profesyonel yatırım yönetimi"},{"name":"Aile Ofisi Kurulumu","price":15000,"desc":"Nesil planlaması"}]');
+// Ürünler ve Hizmetler
+let products = JSON.parse(localStorage.getItem('ans_products') || '[{"name":"ANS Kurucu NFT","price":4999,"desc":"Özel kurucu sertifikası"},{"name":"Termal Kampüs Aboneliği","price":1999,"desc":"Yıllık termal erişim"}]');
+let services = JSON.parse(localStorage.getItem('ans_services') || '[{"name":"Strateji Danışmanlığı","price":5000,"desc":"Chancellor ile özel görüşme"},{"name":"Portföy Yönetimi","price":2500,"desc":"Profesyonel yatırım yönetimi"}]');
 
 function gosterBildirim(mesaj, isError = false) {
     const toast = document.getElementById('toast');
@@ -250,9 +242,6 @@ function gosterBildirim(mesaj, isError = false) {
     setTimeout(() => { toast.classList.remove('show'); }, 3000);
 }
 
-// ============================================
-// KULLANICI İŞLEMLERİ
-// ============================================
 function switchTab(tab) {
     if(tab === 'login') { document.getElementById('loginForm').style.display = 'block'; document.getElementById('registerForm').style.display = 'none'; }
     else { document.getElementById('loginForm').style.display = 'none'; document.getElementById('registerForm').style.display = 'block'; }
@@ -269,7 +258,7 @@ function register() {
     if(password.length < 4) { gosterBildirim('Şifre en az 4 karakter!', true); return; }
     if(!accept) { gosterBildirim('Sözleşmeyi kabul edin!', true); return; }
     if(users.find(u => u.email === email)) { gosterBildirim('E-posta kayıtlı!', true); return; }
-    users.push({ name, email, password, role: 'Üye', initial: name.charAt(0).toUpperCase(), package: 'Bronz' });
+    users.push({ name, email, password, role: 'Üye', initial: name.charAt(0).toUpperCase() });
     localStorage.setItem('ans_users', JSON.stringify(users));
     gosterBildirim('Kayıt başarılı! Giriş yapabilirsiniz.');
     switchTab('login');
@@ -338,9 +327,6 @@ function changeUserPassword() {
     }
 }
 
-// ============================================
-// MODÜL YÖNETİMİ
-// ============================================
 function refreshModulesList() {
     const container = document.getElementById('modulesList');
     if(!container) return;
@@ -369,19 +355,15 @@ function addModule() {
 }
 
 function deleteModule(index) {
-    const mod = dynamicModules[index];
-    if(confirm(`${mod.name} modülünü silmek istediğinize emin misiniz?`)) {
+    if(confirm(`${dynamicModules[index].name} modülünü silmek istediğinize emin misiniz?`)) {
         dynamicModules.splice(index, 1);
         localStorage.setItem('ans_modules', JSON.stringify(dynamicModules));
         refreshModulesList();
         buildNavigation();
-        gosterBildirim(`${mod.name} modülü silindi!`);
+        gosterBildirim('Modül silindi!');
     }
 }
 
-// ============================================
-// ÜRÜN YÖNETİMİ
-// ============================================
 function refreshProductsList() {
     const container = document.getElementById('productsList');
     if(!container) return;
@@ -406,18 +388,14 @@ function addProduct() {
 }
 
 function deleteProduct(index) {
-    const prod = products[index];
-    if(confirm(`${prod.name} ürününü silmek istediğinize emin misiniz?`)) {
+    if(confirm(`${products[index].name} ürününü silmek istediğinize emin misiniz?`)) {
         products.splice(index, 1);
         localStorage.setItem('ans_products', JSON.stringify(products));
         refreshProductsList();
-        gosterBildirim(`${prod.name} silindi!`);
+        gosterBildirim('Ürün silindi!');
     }
 }
 
-// ============================================
-// HİZMET YÖNETİMİ
-// ============================================
 function refreshServicesList() {
     const container = document.getElementById('servicesList');
     if(!container) return;
@@ -442,18 +420,14 @@ function addService() {
 }
 
 function deleteService(index) {
-    const serv = services[index];
-    if(confirm(`${serv.name} hizmetini silmek istediğinize emin misiniz?`)) {
+    if(confirm(`${services[index].name} hizmetini silmek istediğinize emin misiniz?`)) {
         services.splice(index, 1);
         localStorage.setItem('ans_services', JSON.stringify(services));
         refreshServicesList();
-        gosterBildirim(`${serv.name} silindi!`);
+        gosterBildirim('Hizmet silindi!');
     }
 }
 
-// ============================================
-// YÖNETİM PANELİ
-// ============================================
 function openAdminPanel() { document.getElementById('adminPanelModal').classList.add('active'); refreshModulesList(); refreshProductsList(); refreshServicesList(); }
 function closeAdminPanel() { document.getElementById('adminPanelModal').classList.remove('active'); }
 function logoutFromAdmin() { closeAdminPanel(); logout(); }
@@ -471,7 +445,7 @@ function switchAdminTab(tab) {
 }
 
 function showForgotPassword() { document.getElementById('forgotPasswordModal').classList.add('active'); }
-function closeForgotPassword() { document.getElementById('forgotPasswordModal').classList.remove('active'); document.getElementById('resetEmail').value = ''; }
+function closeForgotPassword() { document.getElementById('forgotPasswordModal').classList.remove('active'); }
 function sendResetLink() { const email = document.getElementById('resetEmail').value; if(!email) { gosterBildirim('E-posta girin!', true); return; } const user = users.find(u => u.email === email); if(user) { gosterBildirim(`Şifre sıfırlama bağlantısı ${email} adresine gönderildi.`); } else { gosterBildirim('Kullanıcı bulunamadı!', true); } closeForgotPassword(); }
 
 function showMembershipModal() { document.getElementById('membershipModal').classList.add('active'); }
@@ -485,12 +459,22 @@ window.onload = function() {
     updateDateTime(); setInterval(updateDateTime, 1000);
 };
 
-// ============================================
-// MODÜL RENDER (KISA VERSİYON)
-// ============================================
-let dashboardData = { medeniyetSkoru: 84.7, riskSkoru: 23, uyeSayisi: 847, medeniyetAylar: ["May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara","Oca","Şub","Mar","Nis"], medeniyetTrend: [68,69,71,70,72,74,75,77,79,81,83,84.7] };
+// Dashboard Verileri (Mevcut haliyle aynı)
+let dashboardData = {
+    medeniyetSkoru: 84.7, riskSkoru: 23, uyeSayisi: 847, toplamVarlik: 184200000, netServet: 127800000, aylikNakitAkisi: 2400000, yillikBuyume: 14.2, portfoyGetirisi: 12.8, aktifAbone: 623, ltv: 12400, cac: 380, nps: 72, esgSkoru: 84,
+    medeniyetFaktorleri: { bilgi: 92, kurumlar: 78, liderlik: 88, sermaye: 85, kultur: 91, nesiller: 74 },
+    portfoy: [{ name: "Teknoloji", value: 35 }, { name: "Gayrimenkul", value: 28 }, { name: "Finans", value: 18 }, { name: "Enerji", value: 12 }, { name: "Tarım", value: 7 }],
+    riskler: [{ name: "Jeopolitik", skor: 38, seviye: "yuksek" }, { name: "Piyasa", skor: 27, seviye: "orta" }, { name: "Operasyonel", skor: 18, seviye: "dusuk" }, { name: "Siber", skor: 15, seviye: "dusuk" }, { name: "Regülasyon", skor: 31, seviye: "orta" }, { name: "İtibar", skor: 12, seviye: "dusuk" }, { name: "Likidite", skor: 22, seviye: "dusuk-orta" }, { name: "Kurumsal", skor: 19, seviye: "dusuk-orta" }, { name: "Çevresel", skor: 14, seviye: "dusuk" }, { name: "Sosyal", skor: 16, seviye: "dusuk" }],
+    okrlar: [{ hedef: "Medeniyet Endeksi 90'a çıkarılsın", ilerleme: 84, target: 90, tarih: "2025-12" }, { hedef: "Üye sayısı 2,500'e ulaşsın", ilerleme: 847, target: 2500, tarih: "2025-12" }, { hedef: "Portföy getirisi %15 olsun", ilerleme: 12.8, target: 15, tarih: "2025-06" }, { hedef: "Termal kampüs açılışı", ilerleme: 65, target: 100, tarih: "2025-03" }],
+    uyeTrend: [320, 345, 378, 402, 445, 478, 512, 556, 602, 658, 712, 780, 847], uyeAylar: ["Ara", "Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"],
+    medeniyetTrend: [68, 69, 71, 70, 72, 74, 75, 77, 79, 81, 83, 84.7], medeniyetAylar: ["May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara", "Oca", "Şub", "Mar", "Nis"]
+};
 
-function modulCommand() { document.getElementById('activeModuleDisplay').innerText = 'Yönetici Komuta Merkezi'; return `<div class="aladdin-card p-8 text-center"><i class="fas fa-chart-line fa-3x gold-text mb-4"></i><h3 class="text-white text-xl">Komuta Merkezi</h3><p class="text-gray-400 mt-2">Tüm KPI'lar burada görüntülenir.</p><canvas id="civTrendChart" height="150" class="mt-4"></canvas></div>`; }
+function formatMoney(v) { if(v>=1000000) return `$${(v/1000000).toFixed(1)}M`; if(v>=1000) return `$${(v/1000).toFixed(0)}K`; return `$${v.toLocaleString()}`; }
+function kpiKarti(b,d,y,yn,r) { const rc = r==='yesil'?(yn==='↑'?'text-green-400':'text-red-400'):'text-yellow-400'; return `<div class="aladdin-card p-4"><div class="text-gray-500 text-xs">${b}</div><div class="text-white kpi-value mt-1">${d}</div><div class="flex items-center gap-1 mt-2"><span class="${rc} text-xs">${yn} ${y}</span></div></div>`; }
+
+function modulCommand() { document.getElementById('activeModuleDisplay').innerText = 'Yönetici Komuta Merkezi'; let kpiHtml=''; const k=[['Toplam Varlık',formatMoney(dashboardData.toplamVarlik),'+12.4%','↑','yesil'],['Net Servet',formatMoney(dashboardData.netServet),'+8.2%','↑','yesil'],['Aylık Nakit',formatMoney(dashboardData.aylikNakitAkisi),'+18.7%','↑','yesil'],['Yıllık Büyüme',dashboardData.yillikBuyume+'%','+2.1%','↑','yesil'],['Portföy',dashboardData.portfoyGetirisi+'%','+1.8%','↑','yesil'],['Risk',dashboardData.riskSkoru+'/100','-3','↓','sari'],['Üye',dashboardData.uyeSayisi.toLocaleString(),'+42','↑','yesil'],['Aktif',dashboardData.aktifAbone.toLocaleString(),'+28','↑','yesil'],['LTV',formatMoney(dashboardData.ltv),'+$240','↑','yesil'],['CAC',formatMoney(dashboardData.cac),'-$20','↓','yesil'],['NPS',dashboardData.nps,'+5','↑','yesil'],['ESG',dashboardData.esgSkoru+'/100','+2','↑','yesil']]; k.forEach(x=>kpiHtml+=kpiKarti(x[0],x[1],x[2],x[3],x[4])); let okrHtml=''; dashboardData.okrlar.forEach(o=>{const y=(o.ilerleme/o.target)*100; okrHtml+=`<div class="mb-3"><div class="flex justify-between text-sm"><span class="text-gray-300">${o.hedef}</span><span class="text-white">${o.ilerleme}/${o.target}</span></div><div class="h-2 bg-gray-800 rounded-full"><div class="h-full gold-bg rounded-full" style="width:${y}%"></div></div></div>`;}); return `<div class="space-y-6"><div class="grid grid-cols-4 gap-4">${kpiHtml}</div><div class="grid grid-cols-2 gap-6"><div class="aladdin-card p-5"><h3 class="gold-text text-sm font-semibold mb-4">📈 MEDENİYET TRENDİ</h3><canvas id="civTrendChart" height="200"></canvas></div><div class="aladdin-card p-5"><h3 class="gold-text text-sm font-semibold mb-4">👥 TOPLULUK BÜYÜMESİ</h3><canvas id="memberTrendChart" height="200"></canvas></div></div><div class="grid grid-cols-2 gap-6"><div class="aladdin-card p-5"><h3 class="gold-text text-sm font-semibold mb-4">🎯 OKR TAKİBİ</h3>${okrHtml}</div><div class="aladdin-card p-5"><h3 class="gold-text text-sm font-semibold mb-4">📋 SON AKTİVİTELER</h3><div class="space-y-2">${['3 yeni kurucu üye katıldı','Afyon termal arazi ön onayı','CIO raporu yayınlandı','Eğitime 45 yeni kayıt'].map((a,i)=>`<div class="flex items-center gap-3 text-sm"><div class="w-2 h-2 gold-bg rounded-full"></div><div class="text-gray-300">${a}</div><div class="text-gray-600 text-xs ml-auto">${i+1} saat önce</div></div>`).join('')}</div></div></div></div>`; }
+
 function modulGenel(name, desc) { document.getElementById('activeModuleDisplay').innerText = name; return `<div class="aladdin-card p-8 text-center"><i class="fas fa-chart-line fa-3x gold-text mb-4"></i><h3 class="text-white text-xl">${name}</h3><p class="text-gray-400 mt-2">${desc}</p><div class="mt-4 text-xs text-gray-500">Bu modül aktif olarak çalışmaktadır.</div></div>`; }
 
 function renderModule(moduleId) {
@@ -499,7 +483,12 @@ function renderModule(moduleId) {
     const content = document.getElementById('moduleContent');
     if(m.id==="command") content.innerHTML = modulCommand();
     else content.innerHTML = modulGenel(m.name, m.desc);
-    setTimeout(()=>{ const c=document.getElementById('civTrendChart'); if(c) new Chart(c,{type:'line',data:{labels:dashboardData.medeniyetAylar,datasets:[{data:dashboardData.medeniyetTrend,borderColor:'#D4AF37',fill:true}]},options:{responsive:true,plugins:{legend:{display:false}}}}); },100);
+    setTimeout(()=>{
+        if(m.id==="command") {
+            const c1=document.getElementById('civTrendChart'); if(c1) new Chart(c1,{type:'line',data:{labels:dashboardData.medeniyetAylar,datasets:[{data:dashboardData.medeniyetTrend,borderColor:'#D4AF37',fill:true,tension:0.3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#1F2937'}}}}});
+            const c2=document.getElementById('memberTrendChart'); if(c2) new Chart(c2,{type:'line',data:{labels:dashboardData.uyeAylar,datasets:[{data:dashboardData.uyeTrend,borderColor:'#3B82F6',fill:true,tension:0.3}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#1F2937'}}}}});
+        }
+    },100);
 }
 
 function buildNavigation() {
